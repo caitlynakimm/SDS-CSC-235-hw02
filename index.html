@@ -15,7 +15,7 @@
             <p><a href="https://data.cityofnewyork.us/Public-Safety/EMS-Incident-Dispatch-Data/76xm-jjuj/about_data">Link to dataset.</a> </p>
             <p>This dataset contains information about incidents reported through 911 services and stored in the EMS Computer Aided Dispatch System for New York in 2025. It serves to understand the allocation of resources and the Fire Department's response to emergencies. The dataset is provided by the Fire Department of New York City annually and was last updated October 29, 2025.</p>
         <h2>Data Overview</h2>
-            <p>Each row of the dataset represents one incident created and closed in the dispatch system. It contains details such as the date the incident was created and closed, initial and final call types and severity levels, the dispatch response and travel times, and the location of the incident (by borough and districts). </p>
+            <p>Each row of the dataset represents one incident created and closed in the dispatch system. It contains details such as the date the incident was created and closed, initial and final call types and severity levels, the dispatch response and travel times, and the location of the incident (by borough and districts). The incident response time is the time from the incident being recorded to the time first on scene. The incident travel time is the time from the first unit assignment to the time first on scene.</p>
         <h2>Biases in the Data</h2>
             <p>Bias present in the data could come from how the EMS employees' interpreted incident calls or perceived the actual incidents. Due to the high stress work environment and personal biases towards certain demographics of people, call service workers may have underestimated incident severity levels or misclassified call types and on-scene workers may have underestimated their travel times for a better performance outlook or forgot to reassess severity levels and call types.</p>
     </div>
@@ -24,9 +24,9 @@
         <h2>Visualizations</h2>
 
         <h3>Summary Statistics</h3>
-        <h4>Quantitative Variables</h4>
+        <h4>Quantitative Variables: Incident Response Time and Incident Travel Time</h4>
         <img src="visuals/quant_vars.png">
-        <p></p>
+        <p>The mean, standard deviation, and median (in minutes) for both the response time and travel time are shown. The median response time is 7.88 minutes and the median travel time is 7.38 minutes. So, the process of recording an incident and assigning a unit may have taken about 30 seconds. Both the mean and median response times are greater than the same measures for travel time. This makes sense since response time covers the entire duration of an incident. The standard deviations/spread of the variables are about the same.</p>
 
         <h4>Ordinal Variables</h4>
         <img src="visuals/initial_sev_var.png">
@@ -49,7 +49,7 @@
         <h3>Distribution/Frequency Visualizations</h3>
         <h4>Quantitative Variables</h4>
         <img src="visuals/response_time.png">
-        <p></p>
+        <p>The histogram shows that in the year 2025, most response times in New York took about 6 to 7.5 minutes. </p>
         <img src="visuals/travel_time.png">
         <p></p>
     
@@ -78,7 +78,12 @@
 
     <div>
         <h1>Hypotheses</h1>
-        <p></p>
+          <ol>
+            <li>In 2025, it took most often 5-10 minutes for EMS to arrive at the incident location in New York.</li>
+            <li>In 2025, the most common initial and final severity level of incidents in New York was 5.</li>
+            <li>In 2025, the top call type for incidents in New York was sickness with the most cases in the Bronx, Brooklyn, Manhattan, and Queens.</li>
+          </ol>  
+
     </div>
 </body>
 
