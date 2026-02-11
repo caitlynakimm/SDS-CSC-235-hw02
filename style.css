@@ -1,0 +1,70 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: powderblue;
+}
+
+#topic {
+    font-size: 26px;
+    background-color: rgb(129, 119, 213);
+    padding: 12px 12px;
+}
+
+#subTopic {
+    font-size: 24px;
+    background-color: rgb(62, 164, 62);
+    padding: 12px 12px;
+}
+
+h4 {
+    font-size: 21px;
+}
+
+p {
+    font-size: 20px;
+}
+
+ul {
+    font-size: 20px;
+}
+
+ol {
+    font-size: 20px;
+}
+
+li {
+    margin: 5px;
+}
+
+.backgroundCenter {
+    margin: 20px 15px 15px 20px;
+}
+
+.imageCenter {
+    text-align: center; /*centers images surrounded by text*/
+    margin: 15px 15px; /*top and bottom margins are 15px and left and right margins are 0px*/
+}
+
+img {
+    max-width: 50%;
+    height: auto; /*keeps images' aspect ratio*/
+    border: 2px solid black;
+}
+
+#myImage {
+    max-width: 50%;
+    height: auto; /*keeps images' aspect ratio*/
+    border: none;
+}
+
+button {
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 15px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color:deepskyblue;
+}

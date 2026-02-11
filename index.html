@@ -2,102 +2,141 @@
 <html>
 <head>
 
-    <link rel="SDS-CSC-235_HW02" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <title>EDA: EMS Incident Dispatch Data</title>
 
 </head>
 
 <body>
 
-    <div>
+    <div class="backgroundCenter">
         <h1>Exploratory Data Analysis: EMS Incident Dispatch Data in New York (2025)</h1>
-        <h2>Synopsis</h2>
-            <p><a href="https://data.cityofnewyork.us/Public-Safety/EMS-Incident-Dispatch-Data/76xm-jjuj/about_data">Link to dataset.</a> </p>
+        <h2 id="topic">Synopsis</h2>
+            <p><a href="https://data.cityofnewyork.us/Public-Safety/EMS-Incident-Dispatch-Data/76xm-jjuj/about_data" target="_blank" onmouseover="highlightLink(this)" onmouseout="unhighlightLink(this)">Link to dataset.</a> </p>
             <p>This dataset contains information on over 1 million incidents reported and stored in the EMS Computer Aided Dispatch System for New York in 2025. It serves to understand the allocation of resources and the Fire Department's response to emergencies. The dataset is provided by the Fire Department of New York City annually and was last updated October 29, 2025.</p>
-        <h2>Data Overview</h2>
+        <h2 id="topic">Data Overview</h2>
             <p>Each row of the dataset represents one incident created and closed in the dispatch system. It contains details such as the date the incident was created and closed, initial and final call types and severity levels, the dispatch response and travel times, and the location of the incident (by borough and districts).</p>
-        <h2>Biases in the Data</h2>
-            <p>Bias present in the data could come from how the EMS employees' interpreted incident calls or perceived the actual incidents. Due to the high stress work environment and personal biases towards certain demographics of people, call service workers may have underestimated incident severity levels or misclassified call types and on-scene workers may have underestimated their travel times for a better performance outlook or forgot to reassess severity levels and call types.</p>
+        <h2 id="topic">Biases in the Data</h2>
+            <p>Bias present in the data could come from how the EMS employees' interpreted incident calls or perceived the actual incidents. Due to the high stress work environment and personal biases towards certain demographics of people, call service workers may have underestimated incident severity levels or misclassified call types, and on-scene workers may have underestimated their travel times for a better performance outlook or forgot to reassess severity levels and call types.</p>
+        
+        <div class="imageCenter">
+            <button onclick="changeToAmbulance()">Change to Ambulance</button>
+            <img src="visuals/firetruck.png" id="myImage"></img>
+            <button onclick="changeToTruck()">Change to Firetruck</button>
+        </div>
     </div>
 
-    <div>
-        <h2>Visualizations</h2>
+    <div class="backgroundCenter">
+        <h2 id="topic">Visualizations</h2>
 
-        <h3>Summary Statistics</h3>
-        <h4>Quantitative Variables: Incident Response Time and Incident Travel Time</h4>
-        <img src="visuals/five_num_summary.png">
-        <p>The incident response time is the time from the incident being recorded to the time first on scene. The incident travel time is the time from the first unit assignment to the time first on scene.</p>
+        <h3 id="subTopic">Summary Statistics</h3>
+        <h4>Quantitative Variables</h4>
+            <div class="imageCenter">
+                <img src="visuals/five_num_summary.png">
+            </div>
+        <ul>
+            <li>incident response time = time from the incident being recorded to time first on scene</li>
+            <li>incident travel time = time from the first unit assignment to time first on scene</li>
+        </ul>
         <p>The median response time is 7.88 minutes and the median travel time is 7.38 minutes. So, the process of recording an incident and assigning a unit may have taken about 30 seconds (7.88 min - 7.38 min). Both the mean and median response times are greater than the same measures for travel time. This makes sense since response time covers the entire duration of an incident. The interquartile range of response time is 5.11 minutes and 5.1 minutes for travel time, thus the spread of the middle 50% of both times are about the same. It is important to note there are many NA values recorded for both times, possibly from workers forgetting to record that data.</p>
 
-        <h4>Ordinal Variables: Initial Severity Level and Final Severity Level</h4>
-        <img src="visuals/initial_sev_var.png">
-        <img src="visuals/initial_sev_var_mode.png">
+        <h4>Ordinal Variables</h4>
+        <div class="imageCenter">
+            <img src="visuals/initial_sev_var.png">
+            <img src="visuals/initial_sev_var_mode.png">
+        </div>
         <p>The initial severity level ranges from 1 (least serious) to 9 (most serious). The most common initial severity level reported is 5 (249,364 reports).</p>
 
-        <img src="visuals/final_sev_var.png">
-        <img src="visuals/final_sev_var_mode.png">
+        <div class="imageCenter">
+            <img src="visuals/final_sev_var.png">
+            <img src="visuals/final_sev_var_mode.png">
+        </div>
         <p>The final severity level ranges from 1 (least serious) to 8 (most serious). Interestingly, level 9 is omitted from the range of levels. The most common final severity level reported is also 5 (251,617 reports).</p>
 
-        <h4>Categorical Variables: Final Call Types and Boroughs</h4>
-        <img src="visuals/final_call_var.png">
-        <img src="visuals/final_call_var_mode.png">
+        <h4>Categorical Variables</h4>
+        <div class="imageCenter">
+            <img src="visuals/final_call_var.png">
+            <img src="visuals/final_call_var_mode.png">
+        </div>
         <p>The top 10 most common final call types for incidents are shown. The most common type is sickness (122,501 reports).</p>
 
-        <img src="visuals/borough_var.png">
-        <img src="visuals/borough_var_mode.png">
+        <div class="imageCenter">
+            <img src="visuals/borough_var.png">
+            <img src="visuals/borough_var_mode.png">
+        </div>
         <p>New York is made up of the 5 boroughs shown. There is one incident/outlier where its borough location was not reported. The borough with the most incidents reported is Brooklyn (285,754 reports).</p>
 
-        <h3>Distribution/Frequency Visualizations</h3>
+        <h3 id="subTopic">Distribution/Frequency Visualizations</h3>
         <h4>Quantitative Variables</h4>
-        <img src="visuals/response_time.png">
+        <div class="imageCenter">
+            <img src="visuals/response_time.png">
+        </div>
         <p>The histogram shows in New York 2025 most response times took about 6 to 7.5 minutes. The distribution is slightly right-skewed given the mean is slightly greater than the median.</p>
-        <img src="visuals/travel_time.png">
+        
+        <div class="imageCenter">
+            <img src="visuals/travel_time.png">
+        </div>
         <p>The histogram shows in New York 2025 most travel times took about 5 to 7.5 minutes. The distribution is right-skewed given the mean is greater than the median.</p>
     
         <h4>Ordinal Variables</h4>
-        <img src="visuals/initial_sev.png">
-        <p>The bar chart shows in New York 2025 the three most commonly reported initial severity levels was 5 (~250,000 reports), 2 (~230,000 reports), and 3 (~150,000 reports). There are much less incidents with initial severity levels 1 and 8.</p>
-        <img src="visuals/final_sev.png">
-        <p>The bar chart shows in New York 2025 the three most commonly reported final severity levels was also 5, 2, and 3 with report frequencies that are about the same. Again, there are less incidents with final severity levels 1 and 8.</p>
+        <div class="imageCenter">
+            <img src="visuals/initial_sev.png">
+        </div>
+        <p>The bar chart shows in New York 2025 the three most commonly reported initial severity levels were 5 (~250,000 reports), 2 (~230,000 reports), and 3 (~150,000 reports). There are much less incidents with initial severity levels 1 and 8.</p>
+        
+        <div class="imageCenter">
+            <img src="visuals/final_sev.png">
+        </div>
+        <p>The bar chart shows in New York 2025 the three most commonly reported final severity levels were also 5, 2, and 3 with report frequencies that are about the same. Again, there are less incidents with final severity levels 1 and 8.</p>
 
         <h4>Categorical Variables</h4>
-        <img src="visuals/final_calls.png">
-        <p>The bar chart shows in New York 2025, the three most common final call types is sick (~123,000 reports), injury (~115,000 reports), and unknown (~83,000 reports).</p>
-        <img src="visuals/borough.png">
+        <div class="imageCenter">
+            <img src="visuals/final_calls.png">
+        </div>
+        <p>The bar chart shows in New York 2025, the three most common final call types were sick (~123,000 reports), injury (~115,000 reports), and unknown (~83,000 reports).</p>
+        
+        <div class="imageCenter">
+            <img src="visuals/borough.png">
+        </div>
         <p>The bar chart shows in New York 2025, the top three boroughs with the most incidents reported in are Brooklyn (~29,000 reports), Bronx (~24,000 reports), and Manhattan (~24,000 reports).</p>
 
-        <h3>Relationships Between Variables</h3>
-        <img src="visuals/travel_by_borough.png">
-        <p>This series of histograms display the distribution of travel times for each borough in New York 2025. All 5 boroughs show a left-skewed distribution and generally show most travel times took between 5 to 7.5 minutes. </p>
+        <h3 id="subTopic">Relationships Between Variables</h3>
+        <div class="imageCenter">
+            <img src="visuals/travel_by_borough.png">
+        </div>
+        <p>This series of histograms display the distribution of travel times for each borough in New York 2025. All 5 boroughs show a right-skewed distribution and generally show most travel times took between 5 to 7.5 minutes. </p>
 
-        <img src="visuals/initial_vs_final.png">
+        <div class="imageCenter">
+            <img src="visuals/initial_vs_final.png">
+        </div>
         <p>This paired bar chart compares the frequency of severity levels for initial and final type reporting in New York 2025. The most common severity level for both initial and final type reporting is 5. For levels 1, 3, 5, and 6, there are slightly more incidents with the final severity type.</p>
 
-        <img src="visuals/final_call_by_borough.png">
-        <p>This stacked bar chart compares the top 10 final call types by borough in New York 2025. The most common final call type in the Bronx is sickness, the most common in Brooklyn is injury, the most common in Manhattan is sickness, the most common in Queens is sickness/injury, and the most common in Richmond/Staten Island is injury.</p>
+        <div class="imageCenter">
+            <img src="visuals/final_call_by_borough.png">
+        </div>
+        <p>This stacked bar chart compares the top 10 final call types by borough in New York 2025. The most common final call type in the Bronx is sickness, the most common in Brooklyn is injury, the most common in Manhattan is sickness/injury, the most common in Queens is sickness/injury, and the most common in Richmond/Staten Island is injury.</p>
     </div>
 
-    <div>
-        <h1>Hypotheses</h1>
-          <ol>
-            <li>In New York 2025, it took typically 5-7.5 minutes for EMS to arrive at the incident location.</li>
+    <div class="backgroundCenter">
+        <h2 id="topic">Hypotheses</h2>
+        <ol>
+            <li><b>In New York 2025, it took typically 5-7.5 minutes for EMS to arrive at the incident location.</b></li>
                 <ul>
                     <li>Through analyzing the five number summary of travel time and the visualization of travel time by borough, I found it was reasonable to conclude travel times often fell between this range.</li>
                 </ul>
-            <li>In New York 2025, the most common initial and final severity level of incidents in New York was 5.</li>
+            <li><b>In New York 2025, the most common initial and final severity level of incidents was 5.</b></li>
                 <ul>
                     <li>By comparing the bar charts of initial and final severity levels side-by-side, it was clear that level 5 was the most reported.</li>
                 </ul>
-            <li>In New York 2025, the top final call type for incidents in New York was sickness with the most cases in the Bronx, Brooklyn, and Manhattan.</li>
+            <li><b>In New York 2025, the top final call type for incidents was sickness with the most cases in the Bronx, Brooklyn, and Manhattan.</b></li>
                 <ul>
                     <li>Analyzing the visualization of final call type by borough showed me that sickness had the highest frequency with fairly spaced colors, so most boroughs had a similar amount of calls for sickness.</li>
                 </ul>
         </ol>  
 
     </div>
+    <script src="index.js"></script>
 </body>
-
-
 
 
 </html>

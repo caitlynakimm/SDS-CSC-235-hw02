@@ -35,7 +35,7 @@ You website must:
 3. Display and contextualize each summary statistic and visualization generated in phase 1. 
 4. List each testable hypothesis from phase 1, and communicate how EDA led to that hypothesis. 
 5. Highlight at least one HTML element in response to hovering over it.
-6. Modidy at least one HTML element repeatedly in response to a button click. 
+6. Modify at least one HTML element repeatedly in response to a button click. 
 
  ## Submission
 
